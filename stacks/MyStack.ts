@@ -7,7 +7,14 @@ import {
 
 export function MyStack({ stack }: StackContext) {
   // destination bucket where JSON will be stored
-  const bucket = new Bucket(stack, "DestinationBucket");
+  const bucket = new Bucket(stack, "DestinationBucket", {
+    cdk: {
+      bucket: {
+        // this boolean controls if the files in the bucket are internet facing
+        publicReadAccess: true,
+      },
+    },
+  });
 
   // the lambda, bucket name as environment variables
   // permissions granted to write to the bucket

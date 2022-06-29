@@ -12,11 +12,13 @@ export async function main() {
   const data = await res.json();
   console.log(data);
 
+  const filename = "the_filename.json";
+
   // uploads a file to S3
   await s3
     .putObject({
       Bucket: process.env.BUCKET_NAME,
-      Key: "filename.json",
+      Key: filename,
       Body: JSON.stringify(data),
     })
     .promise();
