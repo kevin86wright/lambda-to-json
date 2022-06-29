@@ -9,6 +9,8 @@ export function MyStack({ stack }: StackContext) {
   // destination bucket where JSON will be stored
   const bucket = new Bucket(stack, "DestinationBucket");
 
+  // the lambda, bucket name as environment variables
+  // permissions granted to write to the bucket
   const lambda = new Function(stack, "Function", {
     handler: "functions/lambda.main",
     environment: {
@@ -17,7 +19,7 @@ export function MyStack({ stack }: StackContext) {
     permissions: [bucket],
   });
 
-  // Cron job is an EventBridge Rule that runs on a schedule
+  // Cron job is an EventBridge Rule that runs the job on a schedule
   new Cron(stack, "Cron", {
     schedule: "rate(1 minute)",
     job: lambda,
