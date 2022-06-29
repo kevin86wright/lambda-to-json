@@ -1,20 +1,10 @@
-# How to use cron jobs in your serverless app
-
-An example serverless app created with SST.
-
-## Getting Started
-
-[**Read the tutorial**](https://sst.dev/examples/how-to-use-cron-jobs-in-your-serverless-app.html)
-
-Install the example.
-
-```bash
-$ npm init serverless-stack --example cron-job
-# Or with Yarn
-$ yarn create serverless-stack --example cron-job
-```
+# An example serverless app created with SST.
 
 ## Commands
+
+### `npm install`
+
+Installs all the required packages
 
 ### `npm run start`
 
